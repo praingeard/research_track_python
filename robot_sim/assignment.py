@@ -171,7 +171,7 @@ def detect_wall_and_turn(tolerance_front, rot_speed, lin_speed, last_turn):
 
     Returns the new last direction the robot has turned (will reset it to "front" after the turn)
     """
-    dist_front, rotfront = detect_marker_angle("gold", 0, 15, 100) #detecting closest wall in front of robot
+    dist_front, rotfront = detect_marker_angle("gold", 0, 30, 100) #detecting closest wall in front of robot
     if dist_front < tolerance_front and dist_front != -1: #if wall close enough
 
         #detect distance to left and right walls
@@ -180,13 +180,24 @@ def detect_wall_and_turn(tolerance_front, rot_speed, lin_speed, last_turn):
 
         #turn the opposite way of the closest side wall
         if dist_right >= dist_left:
-            turn_angle(rot_speed, 80) 
-            drive(lin_speed, 5)
-            last_turn = "front" #reset last turn variable
+            if abs(rotfront) <= 15:
+                turn_angle(rot_speed, 80) 
+                drive(lin_speed, 5)
+                last_turn = "front" #reset last turn variable
+            else :
+                drive(-lin_speed, 0.5)
+                turn_angle(rot_speed, 15)
+                last_turn = "right"
+            
         else:
-            turn_angle(rot_speed, -80)
-            drive(lin_speed, 5)
-            last_turn = "front" #reset last turn variable
+            if abs(rotfront) <= 15:
+                turn_angle(rot_speed, -80)
+                drive(lin_speed, 5)
+                last_turn = "front" #reset last turn variable
+            else :
+                drive(-lin_speed, 0.5)
+                turn_angle(rot_speed, -15)
+                last_turn = "left"
 
     return last_turn
 
