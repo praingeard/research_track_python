@@ -44,12 +44,32 @@ The robot has to :
 
 If you want to use this code with another simulation in the same fashion, you can use the **assignment_generalized.py** file and tune the different parameters. The parameters are the following :
 
-- front wall detection distance
-- silver detection distance
-- failsafe roation angle
-- silver tolerance  
-- front tolerance
-- right/left tolerance
+- speeds of robot
+    - lin_speed(default 20) : linear speed
+    - rot_speed(default 20) : rotation speed
+
+- max detection distance of silver markers and angle tolerance on detection
+    - silver_marker_detect_dist(default 2)
+    - silver_marker_tolerance(default 24)
+    - after_grab_time(default 1) : time driving straight after getting a silver marker
+
+- front detection params
+    - front_wall_turn_dist(default 1.2) : max distance to the front wall from which the robot is in a corner
+    - front_angle_tol(default 30) : tolerance for front detections 
+    - drive_after_turn_time(default 5) : time of driving straight after turning at a corner
+
+- failsafe params
+    - front_wall_detect_angle(default 15) : angle from which a wall is considered a side wall to avoid
+    - failsafe_angle_turn(default 15) : angle to turn robot in case it's too close to a side wall
+
+- side detections params
+    - side_wall_dist_tol(default 0.08) : minimal distance difference betweens walls for the robot to turn
+    - side_angle_tol(default 25) : angle tolerance for side detection
+    - max_detect_side_dist(default 100) : max distance detected for side detection
+
+- straight drive params
+    - straight_drive_time_step(default 0.5) : straight drive time step
+    - straight_drive_angle_turn(default 5) : angle to turn in degrees to drive straight
 
 If the robot enters a corner with a certain angle, it can sometimes turn around.
 This almost never happens but is still a possible case. In the case this happens in your simulation, retuning the front wall detection distance or the failsafe rotation angle should work fine.
