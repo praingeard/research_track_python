@@ -4,16 +4,8 @@ from sr.robot import *
 import math
 
 """
-Exercise 1 python script
-
-Put the main code after the definition of the functions. The code should drive the robot around the environment
-Steps to be performed:
-1- give a linear velocity (speed 50, time 2)
-2- give an angular velocity (speed 20, time 2)
-3- move the robot in circle -> hint: you should create a new function setting the velocities so as to have a linear velocity + an angular velocity (speed 30, time 5)
-
-When done, run with:
-	$ python run.py exercise1.py
+run with:
+	$ python2 run.py assignment_generalized.py
 """
 a_th = 2.0
 """ float: Threshold for the control of the orientation"""

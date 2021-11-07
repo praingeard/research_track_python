@@ -4,16 +4,8 @@ from sr.robot import *
 import math
 
 """
-Exercise 1 python script
-
-Put the main code after the definition of the functions. The code should drive the robot around the environment
-Steps to be performed:
-1- give a linear velocity (speed 50, time 2)
-2- give an angular velocity (speed 20, time 2)
-3- move the robot in circle -> hint: you should create a new function setting the velocities so as to have a linear velocity + an angular velocity (speed 30, time 5)
-
-When done, run with:
-	$ python run.py exercise1.py
+run with:
+	$ python2 run.py assignment.py
 """
 a_th = 2.0
 """ float: Threshold for the control of the orientation"""
@@ -93,22 +85,6 @@ def detect_marker_angle(type, angle, tolerance, limit):
         return -1, -1
     else:
         return dist, rot_y
-
-
-# def detect_closest_marker_angle(type, angle, tolerance):
-#     if type == "silver":
-#         marker_type = MARKER_TOKEN_SILVER
-#     elif type == "gold":
-#         marker_type = MARKER_TOKEN_GOLD
-#     dist = 2
-#     for token in R.see():
-#         if token.dist < dist and token.info.marker_type == marker_type and token.rot_y > angle-tolerance and token.rot_y < angle+tolerance:
-#             dist = token.dist
-#         rot_y = token.rot_y
-#     if dist == 2:
-#         return -1, -1
-#     else:
-#         return dist, rot_y
 
 
 def straight_drive(lin_speed, rot_speed, last_turn):
@@ -276,7 +252,6 @@ def get_marker(type, angle, tolerance, last_turn, limit):
 def main():
     limit = 2 #limit distance for silver token detection
     last_turn = "front" #last turn taken by the robot
-    #drive(20, 5)
     while(1):
         dist_front, roty_front = detect_marker_angle("gold", 0, 10, 100) #detect front wall
         if dist_front > 2. or dist_front == -1: #if far from front wall
