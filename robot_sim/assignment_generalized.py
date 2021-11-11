@@ -275,11 +275,11 @@ after_grab_time = 1 #time driving straight after getting a silver marker
 #front detection params
 front_wall_turn_dist = 1.2 #max distance to the front wall from which the robot is in a corner
 front_angle_tol = 30 #tolerance for front detections 
-drive_after_turn_time = 5 #time of driving straight after turning at a corner
+drive_after_turn_time = 4 #time of driving straight after turning at a corner
 
 #failsafe params
 front_wall_detect_angle = 15 #angle from which a wall is considered a side wall to avoid
-failsafe_angle_turn = 15 #angle to turn robot in case it's too close to a side wall
+failsafe_angle_turn = 10 #angle to turn robot in case it's too close to a side wall
 
 #side detections params
 side_wall_dist_tol = 0.08 #minimal distance difference betweens walls for the robot to turn

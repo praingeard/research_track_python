@@ -158,21 +158,21 @@ def detect_wall_and_turn(tolerance_front, rot_speed, lin_speed, last_turn):
         if dist_right >= dist_left:
             if abs(rotfront) <= 15:
                 turn_angle(rot_speed, 80)  #turn in the corner
-                drive(lin_speed, 5)
+                drive(lin_speed, 4)
                 last_turn = "front" #reset last turn variable
             else :
                 drive(-lin_speed, 0.5)
-                turn_angle(rot_speed, 15) #turn slightly to avoid collision
+                turn_angle(rot_speed, 10) #turn slightly to avoid collision
                 last_turn = "right" #reset last turn variable
             
         else:
             if abs(rotfront) <= 15:
                 turn_angle(rot_speed, -80) #turn in the corner
-                drive(lin_speed, 5)
+                drive(lin_speed, 4)
                 last_turn = "front" #reset last turn variable
             else :
                 drive(-lin_speed, 0.5)
-                turn_angle(rot_speed, -15) #turn slightly to avoid collision
+                turn_angle(rot_speed, -10) #turn slightly to avoid collision
                 last_turn = "left" #reset last turn variable
 
     return last_turn
